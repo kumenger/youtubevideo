@@ -8,7 +8,7 @@ import {fetchDefultNews} from '../action'
 class App extends React.Component{
     state={vidid:""}
     componentDidMount(){
-      //  this.props.fetchDefultNews("news")
+       this.props.fetchDefultNews("news")
     }
    
      getDefultNews=() =>{
@@ -26,7 +26,7 @@ class App extends React.Component{
          getSearchResults=()=>{
              return(
                  <div className='row'>
-                     <div className='col-md-12'><h4 className='text-center text-info'>{this.props.videos.length===0?"":"Video Search Result"}</h4></div>  
+                     <div className='col-md-12 text-center' ><h4 className=' text-info'>{this.props.videos.length===0?"":"Video Search Result"}</h4></div>  
                     {this.props.videos.map(x=>
                       <VideoList src={x.snippet.thumbnails.medium.url} title={x.snippet.description} videioid={x.id.videoId} chanalid={x.snippet.channelTitle} publishedat={x.snippet.publishedAt} />
                         
@@ -53,7 +53,7 @@ class App extends React.Component{
                     <div className='col-md-8'  >
                     <VedioPlayer /> 
                     </div> 
-                    <div  className='col-md-4 bg-white'  style={{height:"80vh",overflow:"scroll",padding:"30px"}}  >
+                    <div  className=' col-md-4 bg-white'  style={{height:"80vh",overflow:"scroll",paddingLeft:"50px"}}  >
                     {this.props.videos.length===0?this.getDefultNews():this.getSearchResults()}
                     </div>
 
